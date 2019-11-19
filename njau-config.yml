@@ -1,0 +1,58 @@
+# 服务端口
+server:
+  port: 8081
+
+
+# 服务名
+spring:
+  application:
+    name: njau-edu
+ # profiles:
+ #   active: dev
+  datasource:
+    url: jdbc:mysql://localhost:3306/scw
+    password: root
+    username: root
+  #返回json的全局时间格式
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+
+#mybatis-plus
+mybatis-plus:
+  configuration:
+    #    打印sql语句
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:com/njau/edu/mapper/xml/*.xml
+
+#阿里云 OSS
+#不同的服务器，地址不同
+aliyun:
+  oss:
+    file:
+      endpoint: oss-cn-beijing.aliyuncs.com
+      keyid: LTAI4FpXNaeq9ePRjaBAqgbh
+      keysecret: rua1oK6I6HFWxEtVqbKSPN6quMD5gZ
+      #bucket可以在控制台创建，也可以使用java代码创建
+      bucketname: edu-njau
+  #        filehost: avatar
+
+
+  #//账号AK信息请填写(必选)
+  #	private static final String accessKeyId = "LTAIq6nIPY09VROj";
+  #	//账号AK信息请填写(必选)
+  #	private static final String accessKeySecret = "FQ7UcixT9wEqMv9F35nORPqKr8XkTF";
+  #// vid df1e8f7ce1314d0389e792b903261d2c
+
+
+#指定注册中心地址
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8220/eureka/
+  instance:
+    #eureka服务器上获取的是服务器的ip地址，否则是主机名
+    prefer-ip-address: true
+
+
